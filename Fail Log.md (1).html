@@ -1,0 +1,95 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Fail Log.md</title><style></style></head><body id="preview">
+<h1><a id="Final_Project_Fail_Log_0"></a>Final Project Fail Log</h1>
+<p>August 16th</p>
+<hr>
+<h1><a id="First_Step__Downloading_the_Data_4"></a>First Step - Downloading the Data</h1>
+<h6><a id="DhBox_5"></a>DhBox</h6>
+<p>First step is to download this data. My DH box account has expired, so I just made a new account with my father’s email address. Now that I’m logged in, I’m going to create a directory for my project and download the files.<br>
+How did I do this?</p>
+<ol>
+<li>I typed in <strong>mkdir</strong> followed by “shawville”. Mkdir is how you make a new directory which is pretty much your file, and Shawville is what I named it, which is after the newspaper.</li>
+<li>Next, I typed <strong>ls</strong> to make sure the file was created and it is still present.</li>
+<li>I typed <strong>cd Shawville</strong> which pretty much lets you enter/click on the folder. So, cd is stating you want to click on a folder, and you follow up by typing the name of which folder you want.</li>
+<li>Now to download only specifically the 2010s I would need to go <strong>wget <a href="http://collections.banq.qc.ca:8008/jrn03/equity/src/">http://collections.banq.qc.ca:8008/jrn03/equity/src/</a> -A &quot;<em>2010</em>&quot;.txt -nc -r --no-parent -nd –w 2 --limit-rate=20k</strong> (You use “wget” to tell the program to install it into dhbox.)</li>
+</ol>
+<ul>
+<li>Where the brackets say 2010, I can either put 201 which means it will download the decade. Prior to this I had planned to only doing 2010, but I feel like there may not be as much information. I just choose 2010 because it was the most recent year out of the scanned documents, but I think it’ll be more interesting to do my project on what topics were most common in the 21st century rather than just to 2010.</li>
+</ul>
+<ol start="5">
+<li>New command is now wget <a href="http://collections.banq.qc.ca:8008/jrn03/equity/src/">http://collections.banq.qc.ca:8008/jrn03/equity/src/</a> -A &quot;<em>201</em>&quot;.txt -nc -r --no-parent -nd –w 2 --limit-rate=20k **</li>
+<li>To save the work, I typed out <strong>history</strong> and <strong>history &gt; <a href="http://dhbox-work-today.md">dhbox-work-today.md</a></strong> which created a new file to show my saved work. All from exercise 2 in Week 1.</li>
+</ol>
+<p><strong>Note</strong><br>
+I noticed when I went into nano that I couldn’t find the actually text? Not sure what I did wrong but when I went into the file manger, all the files were there. So that’s reassuring but I’m wondering if this will cause problems in terms of fixing the text down the line. Instead of using Notepad++, and going through all the time, I’m going to go through Open File to clean this up a bit.</p>
+<h5><a id="Mistakes_19"></a>Mistakes</h5>
+<p>First mistake, after trying to open the files in nano, I realized that I typed out what 2010s and beyond, not 2000-2010. No problem, the most important thing is that I realized quickly why. The new command is<br>
+wget <a href="http://collections.banq.qc.ca:8008/jrn03/equity/src/">http://collections.banq.qc.ca:8008/jrn03/equity/src/</a> -A &quot;<em>200</em>&quot;.txt -nc -r --no-parent -nd –w 2 --limit-rate=20k **</p>
+<blockquote>
+<p>References<br>
+To do this part of the project, I used exercise <strong>2:wget</strong> to refresh my memory on how to do this.<br>
+<a href="https://via.hypothes.is/http://workbook.craftingdigitalhistory.ca/module-2/Exercises/#exercise-2-wget">https://via.hypothes.is/http://workbook.craftingdigitalhistory.ca/module-2/Exercises/#exercise-2-wget</a></p>
+</blockquote>
+<blockquote>
+<p>Reflection<br>
+Doing it a second time was a lot easier, obliviously from experience and now knowing what you need to do. I defiantly don’t feel overwhelmed by doing this project anymore and I really think this was an effective way of teaching someone coding. The way I learnt a lot of my computer software’s was by being given projects and just doing them, and spending a lot of time on YouTube even as simple as “where is this button”.</p>
+</blockquote>
+<h1><a id="Second_Step__Cleaning_up_the_Data_32"></a>Second Step - Cleaning up the Data</h1>
+<p>In this step, we are going to clean up the data by using Regex. Were going to use this to search and replace patterns in text. We are using <strong>Exercise 2</strong> in Module 3 as reference for this part of the project.<br>
+How did I do this?</p>
+<ol>
+<li>used the command <strong>curl</strong> which is like wget. In this exercise, it asks us to use curl. After reading more about it, it seems to be used as an API that can be used by everyone? Not sure if my file from wget was fine but I figured I would stick with the tutorial to avoid any problems since they are two different commands.</li>
+<li>So after <strong>curl</strong> I copied and pasted the web URL for the Shawville files which is <a href="http://collections.banq.qc.ca:8008/jrn03/equity/src/">http://collections.banq.qc.ca:8008/jrn03/equity/src/</a> and I used <strong>&gt; texas.txt</strong></li>
+</ol>
+<ul>
+<li>By using the <strong>&gt;</strong> this creates a file, not a folder, once again, not entirely sure if I could have just used my folder? but I know how these software’s/programs work and one slight change sometimes just ends up not working. So hopefully I didn’t just add in the information twice.</li>
+</ul>
+<ol start="3">
+<li>Okay so when I tried copying and pasting the information from the texas.txt file, I only got the dates of the newspaper which makes a lot of sense because the tutorial was geared around categorizing them. I went into my Shawville file and pulled out a file from 2000. This is making me reconsider using a decade of information rather than a year because these files are extremely dense, however instead of changing my project, I’m just going to use this file to clean up and search and play around for a little bit. Worse case scenario, I just use only one year of data!</li>
+<li>Something that I thought was interesting in RegEx was that in the examples you can use to search is <em>24 or 32 big colors</em>. I wonder if you can use this to search for headlines in newspapers?</li>
+<li>I noticed that there was a lot � symbols and I wanted to get rid of them so I used the command from the tutorial using to get rid of something else, and changed up the command to this \r\n[^�].+. This is supposed to search for that symbol and replace it with nothing.</li>
+</ol>
+<p><strong>Further Context on where and why I’m using this command</strong><br>
+If I was using a text editor on my computer, the search string is (\n[^~].+)<br>
+\n or \r\n means to search for a new line<br>
+[] within those, and the ^ this means to search<br>
+the .+ means to search for all the rest of the characters in the line as well<br>
+To look at it go, grep ‘~’ texas.txt &gt; index.txt<br>
+what this does is, it looks for the ‘~’ lines and puts it into a new file called index.txt which you can access with nano.</p>
+<ol start="6">
+<li>I realized by using that command, it didn’t pick up anything and I realized it was because it was looking for a new line so I decided to try <strong>[^�]</strong>. This picked up everything but the symbols. Exactly not what I was going for. Actually I think it does highlight all these things but I can’t seem to delete them.</li>
+</ol>
+<blockquote>
+<p>Reflection<br>
+Well I tried to delete them and not to sure where I went wrong, but i’m going to continue with the project regardless. Even though I won’t have perfect or most organized data, I’m going to go ahead and continue with searching through.</p>
+</blockquote>
+<h1><a id="Third_Step__Finding_the_Data__Analyzing_and_Searching_54"></a>Third Step - Finding the Data &amp; Analyzing and Searching</h1>
+<p>Were going to go ahead and use some tutorials in Module 4. After doing some reading, the Topic Modeling Tool allows you to browse results. This can help me find my information.<br>
+How did I do this?</p>
+<ol>
+<li>First I had to zip the files so I used the command <strong>zip -r shawville.zip shawville</strong>. Than I went into the filemanger and downloaded the zip file. I’m assuming you had to do this to get all the files to download onto your computer. Makes a lot of sense since when I tried to do this earlier in Open Refine and Regex, I only did only file. Glad I now know how to do this step and I can continue with my data.</li>
+<li>Now that I have Topic Modeling downloaded, I use the default settings and plugged in my information into the input folder and created a file for the output folder and ran the settings. It worked and made a spreadsheet of the words said most in each year, with the ten most talked about subjects. I will be using these data to plug into some visualizations.</li>
+</ol>
+<h1><a id="Fourth_Step__Visualization_60"></a>Fourth Step – Visualization</h1>
+<p>I saw that exercise 7 in module 4 looked like a clever idea to use to create my charts. I had difficult with the data I had. It wasn’t organised as well as I thought. I begin to consider it more and realized that I would have had better search results if I excluded number and dates. Rather than restart, I decided to add it because it still something that’s talked about. For example, a specific date could involve a topic or something that had happen. April 1st was mentioned a lot, which we all know as April fools.<br>
+I liked RAW graphs a lot and it’s something I will defiantly use in the future. It just made this a whole lot easier to show and display.<br>
+How did I do this?</p>
+<ol>
+<li>Go to <a href="http://app.rawgraphs.io/">http://app.rawgraphs.io/</a></li>
+<li>Copy and paste your excel Information</li>
+<li>Choose which kind of graph you want to use</li>
+<li>Drag the column to the appropiate settings</li>
+<li>Save as a png</li>
+</ol>
+<p><strong>Other Programs I tried</strong></p>
+<blockquote>
+<p>The readings really did make me think more of the time these people go through to understand and study. Something that also really made me think was that there isn’t just google out there. I found it so interesting that there all these other search engines and I’m happy I was able to finally do this at a larger scale rather than minor exercises.</p>
+</blockquote>
+<blockquote>
+<p>During the entire process, I did not feel frustrated at all because I understood that this course was more about the process and how you get there, and not what you achieve. I wanted to be able to look for head tiles and I genially did try with Regex but it’s not an easy program to use. Even all the commands change based on what computer you use so google wasn’t to much help.</p>
+</blockquote>
+<blockquote>
+<p>Self Reflection<br>
+I feel like I pushed myself a lot throughout this summer course. I almost completed every exercise in every week. I even now tried more than two exercises than in Module 4 than recommended and in Module 5. I learnt a lot, especially patience and I also learnt to appreciate what some of these people do. I find a lot of the time you just look at the final product and not many people look at the work that goes into these things. This isn’t just with this summer course, but in general. Everything takes time, and has a process. Nothing is better than enjoying the process of something, and the feeling of the end results at the product. For example, I remember being in high school and everyone complained “when am I ever going to use advanced functions”, and I understood that no, were probably never going to use it, but the point of doing this, is to teach us that there is a process and how to solve problems. I feel like in a way, that’s basically University too. It’s all about framing someone’s mind and making them think and not just do. Overall, I’m glad that this course was formatted more with how you achieve or get to something and not the total result. It really made me think why. I was even telling someone the other day, that this course wasn’t easy for me, and they asked me why. The response was super easy, I said “well, if you want to download something, you press a button that says download, you got to memorize, and type out commands that have nothing to relate to the subject, for example, curl or wget”. Right after said that, it just made me appreciate the time historians spend doing this kind of stuff.</p>
+</blockquote>
+
+</body></html>
